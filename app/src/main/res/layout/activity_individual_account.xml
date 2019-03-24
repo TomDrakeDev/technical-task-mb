@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/tv_individual_account_product_description"
+            android:layout_margin="16dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:lineSpacingExtra="20dp"
+            tools:text="Stocks and Shares ISA\nPlan Value: £1000"/>
+
+    <TextView
+            android:id="@+id/tv_individual_account_moneybox"
+            android:layout_width="0dp"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_individual_account_product_description"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:text="Moneybox: £50"/>
+
+    <Button
+            android:id="@+id/bt_individual_account_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="36dp"
+            android:textSize="13sp"
+            android:background="@drawable/background_button_colored_rounded_medium"
+            android:textColor="@color/white"
+            android:text="@string/add_to_moneybox"
+            app:layout_constraintTop_toBottomOf="@id/tv_individual_account_moneybox"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
