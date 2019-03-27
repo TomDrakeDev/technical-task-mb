@@ -1,5 +1,6 @@
 package com.example.minimoneybox
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +14,7 @@ class IndividualAccountsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_individual_account)
         val viewModel = ViewModelProviders.of(this).get(IndividualAccountsViewModel::class.java)
-        val authToken = getSharedPreferences("MY_PREFS", Context.MODE_PRIVATE).getString("AUTH_TOKEN_KEY", "")
+        val authToken = MiniMoneyboxSharedPrefs().getAuthToken(this)
 
         intent?.extras?.let {
             val productText = it.getString("productDescription") ?: ""
@@ -25,6 +26,7 @@ class IndividualAccountsActivity : AppCompatActivity() {
         }
 
         viewModel.moneyboxTotal.observe(this, Observer {
+            setResult(Activity.RESULT_OK)
             tv_individual_account_moneybox.text = String.format(getString(R.string.moneybox_total), it)
         })
 

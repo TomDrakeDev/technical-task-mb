@@ -14,7 +14,7 @@
     <string name="login_failed">Login failed</string>
     <string name="products_loading_failed">Failed to load products</string>
     <string name="add_to_moneybox">Add £20</string>
-    <string name="welcome">Hello%s!</string>
+    <string name="welcome">Hello %s!</string>
     <string name="plan_value">Total Plan Value: £%s</string>
     <string name="product_description">%s\nPlan Value: £%s\nMoneybox: £%s</string>
     <string name="moneybox_total">Moneybox: £%s</string>

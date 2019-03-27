@@ -35,9 +35,9 @@ class LoginActivity: AppCompatActivity(), LoginPresenter.View {
     override fun login(authToken: String, name: String?) {
         setLoadingState(false)
         if (!authToken.isBlank()) {
-            val pref = getSharedPreferences("MY_PREFS", Context.MODE_PRIVATE).edit()
-            pref.putString("AUTH_TOKEN_KEY", "Bearer $authToken").apply()
-            if (name != null) pref.putString("USER_NAME_KEY", name).apply()
+            val prefs = MiniMoneyboxSharedPrefs()
+            prefs.setAuthToken(this, authToken)
+            if (name != null) prefs.setUsername(this, name)
             startActivity(Intent(baseContext, UserAccountsActivity::class.java))
         }
     }

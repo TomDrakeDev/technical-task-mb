@@ -30,11 +30,12 @@ class IndividualAccountsViewModel: ViewModel() {
         _productText.value = text
     }
 
+    private val service = RetrofitInstance().getRetrofitInstance().create(MoneyboxServiceApi::class.java)
+
     fun addToMoneybox(authToken: String?, productId: Int?) {
         if (!authToken.isNullOrBlank() && productId != null) {
-            val service = RetrofitInstance().getRetrofitInstance().create(MoneyboxServiceApi::class.java)
-            val response = service.oneOffPayment(authToken, MoneyboxServiceApi.OneOffPaymentRequestBody(20, productId))
-            response.enqueue(object : Callback<OneOffPaymentResponse> {
+            val call = service.oneOffPayment(authToken, MoneyboxServiceApi.OneOffPaymentRequestBody(20, productId))
+            call.enqueue(object : Callback<OneOffPaymentResponse> {
                 override fun onResponse(call: Call<OneOffPaymentResponse>, response: Response<OneOffPaymentResponse>) {
                     if (response.isSuccessful) {
                         setMoneyBoxText(response.body()?.moneyboxTotal)
